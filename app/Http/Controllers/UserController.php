@@ -8,8 +8,7 @@ class UserController extends Controller
 {
     public function index (){
         $data = array(
-            'title'           => 'Data User'
-            'menuAdminUser'   => 'active'  
+            'title'   => 'Data User' 
         );
         return view('admin/user/index',$data);
     }
