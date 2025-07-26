@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email');
             $table->enum('jabatan',['Admin','Siswa']);
             $table->string('password');
-             $table->boolean('is_tugas')->default(false);
+            $table->boolean('is_tugas')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
