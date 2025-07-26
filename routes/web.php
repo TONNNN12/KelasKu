@@ -15,7 +15,7 @@ Route::post('login',[AuthController::class,'loginProses'])->name('loginProses');
 // logout
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
 
-Route::middleware('checkLogin')->group(function(){
+Route::middleware('CheckLogin')->group(function(){
 // Dashboard
 Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
 // User
