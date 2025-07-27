@@ -37,29 +37,47 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($user as $item)
                                         <tr>
-                                            <td class="text-center">1</td>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
+                                            <td class="text-center">{{ $loop->iteration }}</td>
+                                            <td>{{ $item->nama }}</td>
                                             <td class="text-center">
-                                                <span class="badge badge-dark badge-pill">
-                                                    Admin
+                                                <span class="badge badge-primary">
+                                                    {{ $item->email }}
                                                 </span>
                                             </td>
                                             <td class="text-center">
-                                                <span class="badge badge-danger badge-pill">
+                                                @if ($item->jabatan == 'Admin')
+                                                <span class="badge badge-dark">
+                                                    {{ $item->jabatan }}
+                                                </span>
+                                                @else
+                                                <span class="badge badge-info">
+                                                    {{ $item->jabatan }}
+                                                </span>
+                                                @endif
+                                            </td>
+                                            <td class="text-center">
+                                                @if ($item->is_tugas == false)
+                                                <span class="badge badge-danger">
                                                     Belum Ditugaskan
                                                 </span>
+                                                @else
+                                                <span class="badge badge-success">
+                                                    Sudah Ditugaskan
+                                                </span>
+                                                @endif
                                             </td>
-                                            <td>
-                                                <a href="#" class="btn btn-warning btn-sm">
+                                            <td class="text-center">
+                                                <a href="#" class="btn btn-sm btn-warning">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-danger btn-sm">
+                                                <a href="#" class="btn btn-sm btn-danger">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
