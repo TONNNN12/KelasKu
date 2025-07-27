@@ -19,7 +19,7 @@ class UserController extends Controller
         );
         return view('admin/user/index',$data);
     }
-     public function create (){
+    public function create (){
         $data = array(
             'title'           => 'Tambah Data User',
             'MenuAdminUser'   =>'Active',
@@ -53,7 +53,7 @@ class UserController extends Controller
         return redirect()->route('user')->with('success','Data Berhasil Ditambahkan');
     }
 
-     public function edit ($id){
+    public function edit ($id){
         $data = array(
             'title'           => 'Edit Data User',
             'MenuAdminUser'   =>'Active',
