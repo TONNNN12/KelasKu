@@ -15,7 +15,7 @@
                 </a>
             </div>
             <div>
-                <a href="#" class="btn btn-sm btn-danger">
+                <a href="{{ route('userPdf') }}" class="btn btn-sm btn-danger" target='__blank'>
                     <i class="fas fa-file-pdf mr-2"></i>
                     Pdf
                 </a>
