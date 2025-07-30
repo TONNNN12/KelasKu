@@ -30,11 +30,11 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #5f687b;  /* The default color of the main navmenu links */
-  --nav-hover-color: #10bc69; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-hover-color: #3b38a0; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #B2B0E8; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #5f687b; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #10bc69; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #3b38a0; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -230,7 +230,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  color: var(--default-color);
+  color: #B2B0E8;
   background-color: var(--background-color);
   padding: 15px 0;
   transition: all 0.5s;
@@ -701,7 +701,7 @@ h6 {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  border-color: #3b38a0 transparent #3b38a0 transparent; /* ← warna animasi */
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -1472,8 +1472,8 @@ section,
 
 .contact .info-item i {
   font-size: 20px;
-  color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  color: #3b38a0;
+  background: color-mix(in srgb, #444444, transparent 92%);
   width: 44px;
   height: 44px;
   display: flex;
@@ -1498,8 +1498,8 @@ section,
 }
 
 .contact .info-item:hover i {
-  background: var(--accent-color);
-  color: var(--contrast-color);
+  background: #1A2A80;
+  color: #ffff;
 }
 
 .contact .php-email-form {
