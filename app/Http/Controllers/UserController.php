@@ -28,11 +28,11 @@ class UserController extends Controller
         return view('admin/user/create',$data);
     }
     public function store(Request $request){
-        $request([
+        $request->validate([
             'nama'      => 'required',
             'email'     => 'required|unique:users,email',
             'jabatan'   => 'required',
-            'password'  => 'required|comfirmed|min:8',
+            'password'  => 'required|confirmed|min:8',
         ],[
             'nama.required'      => 'Nama Tidak Boleh Kosong',
             'email.required'     => 'Email Tidak Boleh Kosong',
@@ -63,17 +63,17 @@ class UserController extends Controller
         return view('admin/user/edit',$data);
     }
     public function update(Request $request, $id){
-        $request([
+        $request->validate([
             'nama'      => 'required',
             'email'     => 'required|unique:users,email,'.$id,
             'jabatan'   => 'required',
-            'password'  => 'nullable|comfirmed|min:8',
+            'password'  => 'nullable|confirmed|min:8',
         ],[
             'nama.required'      => 'Nama Tidak Boleh Kosong',
             'email.required'     => 'Email Tidak Boleh Kosong',
             'email.unique'       => 'Email Sudah Ada',
             'jabatan.required'   => 'Jabatan Harus Di Pilih',
-            'password.cormirmed' => 'Password KOnfirmasi Tidak Sama',
+            'password.cormirmed' => 'Password Konfirmasi Tidak Sama',
             'password.min'       => 'Password Minimal 8 Karakter',
         ]);
 

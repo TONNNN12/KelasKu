@@ -56,7 +56,12 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="{{ route('login') }}">Login</a>
+      <a 
+      href="{{ route('login') }}" 
+      class="btn-getstarted" 
+      style="background-color: #3b38a0; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 500;">
+      Login
+      </a>
 
     </div>
   </header>
@@ -72,11 +77,17 @@
             <h1>KelasKu</h1>
             <p>Aplikasi Manajemen Tugas</p>
             <div class="d-flex">
-              <a href="#about" class="btn-get-started">Login</a>
+              <a 
+              href="#about" 
+              class="btn-get-started" 
+              style="background-color: #3b38a0; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
+              Login
+              </a>
+
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
-            <img src="{{ asset('enno/assets/img/hero-img.png') }}" class="img-fluid animated" alt="">
+            <img src="{{ asset('enno/assets/img/hero-new.png') }}" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
@@ -177,7 +188,14 @@
   </main>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <<a 
+  href="#" 
+  id="scroll-top" 
+  class="scroll-top d-flex align-items-center justify-content-center" 
+  style="background-color: #3b38a0; color: white; border-radius: 50%; width: 40px; height: 40px;">
+  <i class="bi bi-arrow-up-short"></i>
+  </a>
+
 
   <!-- Preloader -->
   <div id="preloader"></div>

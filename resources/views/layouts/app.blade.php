@@ -39,7 +39,7 @@
                                 <a class="dropdown-item" href="#">
                                     <div class="badge badge-success 
                                     justify-content-center d-flex">
-                                        ADMIN
+                                        {{ auth()->user()->jabatan }}
                                     </div>
                                 </a>
                                 <a class="dropdown-item" href="#">
