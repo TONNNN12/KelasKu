@@ -29,4 +29,3 @@ Route::get('user/pdf',[UserController::class,'pdf'])->name('userPdf');
 // Tugas
 Route::get('tugas',[TugasController::class,'index'])->name('tugas');
 });
-
