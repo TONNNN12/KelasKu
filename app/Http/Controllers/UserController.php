@@ -100,7 +100,7 @@ class UserController extends Controller
         $data = array(
             'user' => User::get(),
             'tanggal' => now()->format('d-m-Y'),
-            'jam'     => now()->format('H:i:s'),
+            'jam'     => now()->format('H.i.s'),
         );
          $pdf = Pdf::loadView('admin/user/pdf', $data);
     return $pdf->setPaper('a4', 'landscape')->stream('DataUser_'.$filename.'.pdf');
