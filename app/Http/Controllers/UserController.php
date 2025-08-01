@@ -95,6 +95,7 @@ class UserController extends Controller
         return redirect()->route('user')->with('success','Data Berhasil Di Hapus');
     }
     public function pdf (){
+         date_default_timezone_set('Asia/Jakarta'); 
         $filename = now()->format('d-m-Y_H.i.s');
         $data = array(
             'user' => User::get(),
