@@ -95,14 +95,14 @@ class UserController extends Controller
         return redirect()->route('user')->with('success','Data Berhasil Di Hapus');
     }
     public function pdf (){
-         date_default_timezone_set('Asia/Jakarta'); 
+        date_default_timezone_set('Asia/Jakarta'); 
         $filename = now()->format('d-m-Y_H.i.s');
         $data = array(
             'user' => User::get(),
             'tanggal' => now()->format('d-m-Y'),
             'jam'     => now()->format('H.i.s'),
         );
-         $pdf = Pdf::loadView('admin/user/pdf', $data);
+        $pdf = Pdf::loadView('admin/user/pdf', $data);
     return $pdf->setPaper('a4', 'landscape')->stream('DataUser_'.$filename.'.pdf');
     }
 }

@@ -78,7 +78,7 @@
             <p>Aplikasi Manajemen Tugas</p>
             <div class="d-flex">
               <a 
-              href="#about" 
+              href="{{ route('login') }}" 
               class="btn-get-started" 
               style="background-color: #3b38a0; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
               Login
