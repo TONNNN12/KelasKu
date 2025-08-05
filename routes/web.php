@@ -28,4 +28,6 @@ Route::delete('user/destroy/{id}',[UserController::class,'destroy'])->name('user
 Route::get('user/pdf',[UserController::class,'pdf'])->name('userPdf');
 // Tugas
 Route::get('tugas',[TugasController::class,'index'])->name('tugas');
-});
+Route::get('tugas/create',[TugasController::class,'create'])->name('tugasCreate');
+Route::post('tugas/store',[TugasController::class,'store'])->name('tugasStore');
+}); 
