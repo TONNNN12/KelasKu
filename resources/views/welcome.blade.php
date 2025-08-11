@@ -56,7 +56,7 @@
     .navbar-brand {
       font-size: 2rem;
       font-weight: 800;
-      background: linear-gradient(45deg, #fff, #4A90E2);
+      background: linear-gradient(45deg, #fff, #f5d042);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -71,7 +71,7 @@
     }
 
     .navbar-nav .nav-link:hover {
-      color: #4A90E2 !important;
+      color: #f5d042 !important;
       transform: translateY(-2px);
     }
 
@@ -82,7 +82,7 @@
       height: 2px;
       bottom: -5px;
       left: 50%;
-      background: #4A90E2;
+      background: #f5d042;
       transition: all 0.3s ease;
       transform: translateX(-50%);
     }
@@ -92,7 +92,7 @@
     }
 
     .btn-login {
-      background: linear-gradient(45deg, #4A90E2, #007BFF);
+      background: linear-gradient(45deg, #4A90E2, #f5d042);
       border: none;
       padding: 12px 30px;
       border-radius: 50px;
@@ -144,10 +144,17 @@
     .hero h1 {
       font-size: 4rem;
       font-weight: 800;
-      color: white;
+      color: #f5d042;
       margin-bottom: 20px;
       text-shadow: 0 4px 8px rgba(0,0,0,0.3);
       animation: slideInLeft 1s ease-out;
+    }
+    .gradient-text {
+      background: linear-gradient(45deg, #ffffff, #ffcc00); /* gradasi */
+      -webkit-background-clip: text; /* untuk Chrome/Safari */
+      -webkit-text-fill-color: transparent; /* supaya hanya teks yang kelihatan */
+      background-clip: text; /* untuk browser modern */
+      color: transparent;
     }
 
     @keyframes slideInLeft {
@@ -433,8 +440,8 @@
     <div class="container hero-content">
       <div class="row align-items-center">
         <div class="col-lg-6">
-          <h1>KelasKu</h1>
-          <p>Aplikasi Manajemen Tugas Modern untuk Produktivitas Maksimal</p>
+        <h1 class="gradient-text">KelasKu</h1>
+          <p>Aplikasi Manajemen Tugas Kelas</p>
           <a href="{{ route('login') }}" class="btn btn-get-started">Mulai Sekarang</a>
         </div>
         <div class="col-lg-6 hero-image">
@@ -500,7 +507,7 @@
             <i class="fas fa-map-marker-alt"></i>
             <div>
               <h3>Lokasi Kami</h3>
-              <p>SMK Negeri 1 Dukuhturi<br>Tegal, Jawa Tengah</p>
+              <p>SMK Negeri 1 Dukuhturi</p>
             </div>
           </div>
         </div>
