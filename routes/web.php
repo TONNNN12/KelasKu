@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\DashboardController;
+use App\Models\Tugas;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,4 +34,5 @@ Route::post('tugas/store',[TugasController::class,'store'])->name('tugasStore');
 Route::get('tugas/edit/{$id}',[TugasController::class,'edit'])->name('tugasEdit');
 Route::post('tugas/update/{$id}',[TugasController::class,'update'])->name('tugasUpdate');
 Route::delete('tugas/destroy/{$id}',[TugasController::class,'destroy'])->name('tugasDestroy');
+Route::get('tugas/pdf',[TugasController::class,'pdf'])->name('tugasPdf');
 }); 
