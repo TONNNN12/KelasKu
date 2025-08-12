@@ -105,4 +105,10 @@ class UserController extends Controller
         $pdf = Pdf::loadView('admin/user/pdf', $data);
     return $pdf->setPaper('a4', 'landscape')->stream('DataUser_'.$filename.'.pdf');
     }
+     public function destroy ($id){
+        $Tugas = Tugas::findOrFail($id);
+        $Tugas->delete();
+
+        return redirect()->route('tugas')->with('success','Data Berhasil Di Hapus');
+    }
 }
