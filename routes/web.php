@@ -30,4 +30,7 @@ Route::get('user/pdf',[UserController::class,'pdf'])->name('userPdf');
 Route::get('tugas',[TugasController::class,'index'])->name('tugas');
 Route::get('tugas/create',[TugasController::class,'create'])->name('tugasCreate');
 Route::post('tugas/store',[TugasController::class,'store'])->name('tugasStore');
+Route::get('tugas/edit/{$id}',[TugasController::class,'edit'])->name('tugasEdit');
+Route::post('tugas/update/{$id}',[TugasController::class,'update'])->name('tugasUpdate');
+Route::delete('tugas/destroy/{$id}',[TugasController::class,'destroy'])->name('tugasDestroy');
 }); 

@@ -49,4 +49,40 @@ class TugasController extends Controller
 
         return redirect()->route('tugas')->with('success','Data Berhasil Ditambahkan');
     }
+     public function edit ($id){
+        $data = array(
+            'title'            => 'Edit Data Tugas',
+            'MenuAdminTugas'   => 'Active',
+            'tugas'            => Tugas::with('user')->findOrFail($id),
+        );
+        return view('admin/tugas/update',$data);
+    }
+    public function update(Request $request, $id){
+        $request->validate([
+            'tugas'              => 'required',
+            'tanggal_mulai'      => 'required',
+            'tanggal_selesai'    => 'required',
+        ],[
+            'user_id.required'            => 'Nama Tidak Boleh Kosong',
+            'tugas.required'              => 'Tugas Tidak Boleh Kosong',
+            'tanggal_mulai.required'      => 'Tanggal mulai Tidak Boleh Kosong',
+            'tanggal_selesai.required'    => 'Tanggal selesai Tidak Boleh Kosong',
+        ]);
+
+        $tugas = Tugas::findOrFail($id);
+        $tugas->tugas = $request->tugas;
+        $tugas->tanggal_mulai = $request->tanggal_mulai;
+        $tugas->tanggal_selesai = $request->tanggal_selesai;
+        $tugas->save();
+
+        return redirect()->route('tugas')->with('success','Data Berhasil Diedit');
+    }
+      public function destroy ($id){
+        $Tugas = Tugas::findOrFail($id);
+        $Tugas->delete();
+        $user = User::where('id',$tugas->user_id)->first();
+        $user->is_tugas = false;
+        $user->save();
+        return redirect()->route('tugas')->with('success','Data Berhasil Di Hapus');
+    }
 }
