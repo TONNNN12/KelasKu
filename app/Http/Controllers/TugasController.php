@@ -50,7 +50,7 @@ class TugasController extends Controller
 
         return redirect()->route('tugas')->with('success','Data Berhasil Ditambahkan');
     }
-     public function edit ($id){
+    public function edit ($id){
         $data = array(
             'title'            => 'Edit Data Tugas',
             'MenuAdminTugas'   => 'Active',
@@ -78,9 +78,9 @@ class TugasController extends Controller
 
         return redirect()->route('tugas')->with('success','Data Berhasil Diedit');
     }
-      public function destroy ($id){
-        $Tugas = Tugas::findOrFail($id);
-        $Tugas->delete();
+    public function destroy ($id){
+        $tugas = Tugas::findOrFail($id);
+        $tugas->delete();
         $user = User::where('id',$tugas->user_id)->first();
         $user->is_tugas = false;
         $user->save();
