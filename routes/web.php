@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\DashboardController;
+use App\Models\Tugas;
 
 Route::get('/', function () {
     return view('welcome');
