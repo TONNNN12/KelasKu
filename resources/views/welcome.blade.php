@@ -430,7 +430,11 @@
             <a class="nav-link" href="#contact">Kontak</a>
           </li>
         </ul>
-        <a href="{{ route('login') }}" class="btn btn-login">Login</a>
+        @auth
+            <a href="{{ route('dashboard') }}" class="btn btn-login">dashboard</a>    
+        @else
+            <a href="{{ route('login') }}" class="btn btn-login">Login</a>
+        @endauth
       </div>
     </div>
   </nav>
@@ -442,7 +446,11 @@
         <div class="col-lg-6">
         <h1 class="gradient-text">KelasKu</h1>
           <p>Aplikasi Manajemen Tugas Kelas</p>
-          <a href="{{ route('login') }}" class="btn btn-get-started">Mulai Sekarang</a>
+          @auth
+            <a href="{{ route('dashboard') }}" class="btn btn-get-started">Mulai Sekarang</a>
+          @else
+            <a href="{{ route('login') }}" class="btn btn-get-started">Mulai Sekarang</a>
+          @endauth
         </div>
         <div class="col-lg-6 hero-image">
           <div class="hero-img order-1 order-lg-2" data-aos="zoom-out" data-aos-delay="100">
