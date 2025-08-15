@@ -18,14 +18,14 @@ class TugasController extends Controller
             'MenuAdminTugas'   =>'Active',
             'tugas'            => Tugas::with('user')->get(),
         );
-        return view('admin/tugas/index',$data);
+        return view('admin.tugas.index',$data);
         }else{
                $data = array(
             'title'           => 'Data Tugas',
             'MenuSiswaTugas'   =>'Active',
-            'tugas'            => Tugas::with('user')->get(),
+            'tugas'            => Tugas::with('user')->where('user_id',$user->id)->first(),
         );
-        return view('siswa/tugas/index',$data);
+        return view('siswa.tugas.index',$data);
         }
        
     }
@@ -99,14 +99,29 @@ class TugasController extends Controller
         return redirect()->route('tugas')->with('success','Data Berhasil Di Hapus');
     }
      public function pdf (){
-        date_default_timezone_set('Asia/Jakarta'); 
+        date_default_timezone_set('Asia/Jakarta');
+              $user = Auth::user(); 
         $filename = now()->format('d-m-Y_H.i.s');
-        $data = array(
+        if ($user->jabatan=='Admin') {
+             $data = array(
             'tugas' => Tugas::with('user')->get(),
             'tanggal' => now()->format('d-m-Y'),
             'jam'     => now()->format('H.i.s'),
         );
         $pdf = Pdf::loadView('admin/tugas/pdf', $data);
     return $pdf->setPaper('a4', 'landscape')->stream('DataTugas_'.$filename.'.pdf');
+        } else {
+            $data = array(
+            'tanggal' => now()->format('d-m-Y'),
+            'jam'     => now()->format('H.i.s'),
+            'tugas'            => Tugas::with('user')->where('user_id',$user->id)->first(),
+        );
+        $pdf = Pdf::loadView('siswa/tugas/pdf', $data);
+    return $pdf->setPaper('a4', 'portrait')->stream('DataTugas_'.$filename.'.pdf');
+        }
+        
+
+
+       
     }
 }
