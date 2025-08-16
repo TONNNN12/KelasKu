@@ -23,6 +23,7 @@ Route::middleware('checkLogin')->group(function(){
 // Dashboard
 Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
 Route::get('tugas',[TugasController::class,'index'])->name('tugas');
+Route::get('tugas/pdf',[TugasController::class,'pdf'])->name('tugasPdf');
 Route::middleware('isAdmin')->group(function(){
     // User
 Route::get('user',[UserController::class,'index'])->name('user');
@@ -38,7 +39,7 @@ Route::post('tugas/store',[TugasController::class,'store'])->name('tugasStore');
 Route::get('tugas/edit/{id}',[TugasController::class,'edit'])->name('tugasEdit');
 Route::post('tugas/update/{id}',[TugasController::class,'update'])->name('tugasUpdate');
 Route::delete('tugas/destroy/{id}',[TugasController::class,'destroy'])->name('tugasDestroy');
-Route::get('tugas/pdf',[TugasController::class,'pdf'])->name('tugasPdf');
+
 }); 
 
 }); 
