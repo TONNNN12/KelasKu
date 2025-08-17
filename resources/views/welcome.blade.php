@@ -445,7 +445,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6">
         <h1 class="gradient-text">KelasKu</h1>
-          <p>Aplikasi Manajemen Tugas Kelas</p>
+          <p>Manajemen Tugas Kelas  XII RPL</p>
           @auth
             <a href="{{ route('dashboard') }}" class="btn btn-get-started">Mulai Sekarang</a>
           @else
@@ -515,7 +515,7 @@
             <i class="fas fa-map-marker-alt"></i>
             <div>
               <h3>Lokasi Kami</h3>
-              <p>SMK Negeri 1 Dukuhturi</p>
+              <p>SMK Negeri 1 Dukuhturi Tegal, Jawa Tengah</p>
             </div>
           </div>
         </div>
@@ -526,6 +526,7 @@
             <div>
               <h3>Hubungi Kami</h3>
               <p>+62 812-3456-7890</p>
+              <p>+62 812-3456-7890</p>
             </div>
           </div>
         </div>
@@ -535,6 +536,7 @@
             <i class="fas fa-envelope"></i>
             <div>
               <h3>Email Kami</h3>
+              <p>info@kelasku.com</p>
               <p>info@kelasku.com</p>
             </div>
           </div>
