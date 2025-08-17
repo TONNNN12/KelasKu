@@ -54,7 +54,7 @@
                                             </td>
                                             
                                             <td class="text-center">
-                                                 <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#modalTugasShow{{ $item->id }}">
+                                                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#modalTugasShow{{ $item->id }}">
                                                     <i class="fas fa-eye"></i>
                                                 </button>
                                                 <a href="{{ route('tugasEdit', $item->id) }}" class="btn btn-sm btn-warning">
