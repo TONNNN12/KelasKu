@@ -42,10 +42,6 @@
                                         {{ auth()->user()->jabatan }}
                                     </div>
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Pengaturan
-                                </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -74,7 +70,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Anton & Rapit 2025</span>
                     </div>
                 </div>
             </footer>

@@ -448,8 +448,8 @@
     <div class="dashboard-hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>{{ $title }}</h1>
-                <p class="hero-subtitle">Kelola sistem dengan mudah dan efisien</p>
+                <h1>Kelas XII RPL</h1>
+                <p class="hero-subtitle"></p>
             </div>
             <div class="hero-icon">
                 <i class="fas fa-tachometer-alt"></i>
@@ -464,9 +464,9 @@
             <div class="perfect-card card-users">
                 <div class="card-content">
                     <div class="card-info">
-                        <div class="card-label">Total Users</div>
+                        <div class="card-label">Total User</div>
                         <div class="card-number" id="count-users">{{ $jumlahUser }}</div>
-                        <p class="card-description">Pengguna terdaftar dalam sistem</p>
+                        <p class="card-description">Pengguna terdaftar</p>
                     </div>
                     <div class="card-icon-wrapper icon-users">
                         <i class="fas fa-users card-icon"></i>
@@ -480,7 +480,7 @@
                     <div class="card-info">
                         <div class="card-label">Total Admin</div>
                         <div class="card-number" id="count-admin">{{ $jumlahAdmin }}</div>
-                        <p class="card-description">Administrator aktif sistem</p>
+                        <p class="card-description">Admin aktif </p>
                     </div>
                     <div class="card-icon-wrapper icon-admin">
                         <i class="fas fa-user-shield card-icon"></i>
@@ -494,7 +494,7 @@
                     <div class="card-info">
                         <div class="card-label">Total Siswa</div>
                         <div class="card-number" id="count-siswa">{{ $jumlahSiswa }}</div>
-                        <p class="card-description">Siswa terdaftar dalam sistem</p>
+                        <p class="card-description">Siswa terdaftar</p>
                     </div>
                     <div class="card-icon-wrapper icon-siswa">
                         <i class="fas fa-graduation-cap card-icon"></i>
@@ -506,9 +506,9 @@
             <div class="perfect-card card-ditugaskan">
                 <div class="card-content">
                     <div class="card-info">
-                        <div class="card-label">Ditugaskan</div>
+                        <div class="card-label"> Sudah Ditugaskan</div>
                         <div class="card-number" id="count-ditugaskan">{{ $jumlahDitugaskan }}</div>
-                        <p class="card-description">Siswa yang telah mendapat tugas</p>
+                        <p class="card-description">Sudah dapat tugas</p>
                     </div>
                     <div class="card-icon-wrapper icon-ditugaskan">
                         <i class="fas fa-check-circle card-icon"></i>
@@ -522,7 +522,7 @@
                     <div class="card-info">
                         <div class="card-label">Belum Ditugaskan</div>
                         <div class="card-number" id="count-belum">{{ $jumlahBelumDitugaskan }}</div>
-                        <p class="card-description">Menunggu pemberian tugas</p>
+                        <p class="card-description">Belum dapat tugas</p>
                     </div>
                     <div class="card-icon-wrapper icon-belum">
                         <i class="fas fa-hourglass-half card-icon"></i>
@@ -539,9 +539,9 @@
                         <div class="card-label">Status Penugasan</div>
                         <span class="status-badge">
                             <i class="fas fa-check-circle mr-2"></i>
-                            Ditugaskan
+                             Sudah Ditugaskan
                         </span>
-                        <p class="card-description">Anda memiliki tugas aktif yang perlu diselesaikan dengan baik</p>
+                        <p class="card-description">Anda memiliki tugas yang perlu diselesaikan</p>
                     </div>
                     <div class="card-icon-wrapper icon-ditugaskan" style="margin-top: 1.5rem;">
                         <i class="fas fa-tasks card-icon"></i>

@@ -9,7 +9,7 @@
     <script src="{{ asset('sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
 
 
-        @session('success')
+    @session('success')
     <script>
         Swal.fire({
         title: "Sukses",

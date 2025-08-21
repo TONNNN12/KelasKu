@@ -21,7 +21,7 @@
                     {{ $title }}
                 </h1>
                 <p class="mb-0 font-weight-medium header-subtitle">
-                    Detail informasi tugas siswa
+                    Informasi tugas siswa
                 </p>
             </div>
         </div>
@@ -57,7 +57,7 @@
                                aria-label="Export tugas ke format PDF"
                                rel="noopener">
                                 <i class="fas fa-file-pdf mr-2" aria-hidden="true"></i>
-                                Export PDF
+                                PDF
                             </a>
                         </div>
                         @endif
@@ -82,7 +82,7 @@
                                         Status: Ditugaskan
                                     </h3>
                                     <p class="text-muted mb-0 status-description">
-                                        Tugas telah diberikan dan aktif
+                                        Tugas telah diberikan
                                     </p>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                                          aria-labelledby="personal-info-title">
                                     <h4 id="personal-info-title" class="font-weight-bold mb-3 d-flex align-items-center section-title">
                                         <i class="fas fa-user mr-2 text-warning" aria-hidden="true"></i>
-                                        Informasi Personal
+                                        Informasi Pengguna
                                     </h4>
                                     
                                     <!-- Name -->
@@ -118,7 +118,6 @@
                                         </div>
                                         <div class="detail-value flex-fill">
                                             <span class="badge badge-pill px-3 py-2 font-weight-semibold shadow-sm email-badge">
-                                                <i class="fas fa-at mr-1" aria-hidden="true"></i>
                                                 {{ $tugas->user->email }}
                                             </span>
                                         </div>
@@ -193,7 +192,7 @@
                                     Belum Mendapat Tugas
                                 </h3>
                                 <p class="text-muted mb-4 no-task-description">
-                                    Anda belum mendapat penugasan dari admin. Silakan menunggu atau hubungi administrator untuk informasi lebih lanjut.
+                                    Anda belum mendapat penugasan dari admin. Silakan menunggu atau hubungi admin untuk informasi lebih lanjut.
                                 </p>
                                 
                                 <div class="row justify-content-center">
