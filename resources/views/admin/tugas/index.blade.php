@@ -29,79 +29,94 @@
     <div class="card">
         <div class="card-header d-flex flex-wrap">
             <div class="mt-2 mt-md-0">
-                            <a href="{{ route('tugasCreate') }}" 
-                                class="btn btn-primary rounded-pill font-weight-semibold px-4 py-2 shadow-sm d-inline-flex align-items-center btn-hover-lift export-btn mr-4"
-                                aria-label="Export tugas ke format PDF"
-                                rel="noopener">
-                                <i class="fas fa-file-pdf mr-2" aria-hidden="true"></i>
-                                Tambah Data
-                            </a>
+                <a href="{{ route('tugasCreate') }}" 
+                    class="btn btn-primary rounded-pill font-weight-semibold px-4 py-2 shadow-sm d-inline-flex align-items-center btn-hover-lift export-btn mr-4"
+                    aria-label="Tambah Data Tugas"
+                    rel="noopener">
+                    <i class="fas fa-plus mr-2" aria-hidden="true"></i>
+                    Tambah Data
+                </a>
             </div>
             
             <div class="mt-2 mt-md-0">
-                            <a href="{{ route('tugasPdf') }}" 
-                                target="_blank" 
-                                class="btn btn-danger rounded-pill font-weight-semibold px-4 py-2 shadow-sm d-inline-flex align-items-center btn-hover-lift export-btn"
-                                aria-label="Export tugas ke format PDF"
-                                rel="noopener">
-                                <i class="fas fa-file-pdf mr-2" aria-hidden="true"></i>
-                                PDF
-                            </a>
+                <a href="{{ route('tugasPdf') }}" 
+                    target="_blank" 
+                    class="btn btn-danger rounded-pill font-weight-semibold px-4 py-2 shadow-sm d-inline-flex align-items-center btn-hover-lift export-btn"
+                    aria-label="Export tugas ke format PDF"
+                    rel="noopener">
+                    <i class="fas fa-file-pdf mr-2" aria-hidden="true"></i>
+                    PDF
+                </a>
             </div>
         </div>
         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                                <thead style="background-color: #002147; color: #ffffff;">
-                                        <tr class="text-center">
-                                            <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Tugas</th>
-                                            <th>Tangggal Mulai</th>
-                                            <th>Tanggal Selesai</th>
-                                            <th>
-                                                <i class="fas fa-cog"></i>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($tugas as $item)
-                                        <tr>
-                                            <td class="text-center">{{ $loop->iteration }}</td>
-                                            <td>{{ $item->user->nama }}</td>
-                                            <td>{{ $item->tugas }}</td>
-                                            <td class="text-center">
-                                                <span class="badge badge-info">
-                                                    {{ $item->tanggal_mulai }}
-                                                </span>
-                                            </td>
-                                            <td class="text-center">
-                                                <span class="badge badge-info">
-                                                    {{ $item->tanggal_selesai }}
-                                                </span>
-                                            </td>
-                                            
-                                            <td class="text-center">
-                                                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#modalTugasShow{{ $item->id }}">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-                                                <a href="{{ route('tugasEdit', $item->id) }}" class="btn btn-sm btn-warning">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalTugasDestroy{{ $item->id }}">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                                @include('admin/tugas/modal')
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                    <thead style="background-color: #002147; color: #ffffff;">
+                        <tr class="text-center">
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Tugas</th>
+                            <th>Tangggal Mulai</th>
+                            <th>Tanggal Selesai</th>
+                            <th>
+                                <i class="fas fa-cog"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($tugas as $item)
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+
+                            <!-- Nama hanya teks biasa, tidak bisa diklik -->
+                            <td>{{ $item->user->nama }}</td>
+
+                            <td>{{ $item->tugas }}</td>
+                            <td class="text-center">
+                                <span class="badge badge-info">
+                                    {{ $item->tanggal_mulai }}
+                                </span>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge badge-info">
+                                    {{ $item->tanggal_selesai }}
+                                </span>
+                            </td>
+                            
+                            <td class="text-center">
+                                <!-- Tombol Lihat -->
+                                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#modalTugasShow{{ $item->id }}">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+
+                                <!-- Tombol Edit -->
+                                <a href="{{ route('tugasEdit', $item->id) }}" class="btn btn-sm btn-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+
+                                <!-- Tombol Hapus -->
+                                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalTugasDestroy{{ $item->id }}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+
+                                <!-- Tombol Komentar -->
+                                <a href="{{ route('tugas.submissions', $item->id) }}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-comments"></i>
+                                </a>
+
+                                @include('admin/tugas/modal')
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+
 <style>
-        :root {
+:root {
     --primary-blue: #002D72;
     --secondary-blue: #1E4A8C;
     --accent-yellow: #FFCB05;
@@ -119,7 +134,8 @@
     --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
- /* Header Section Styles */
+
+/* Header Section Styles */
 .header-section {
     background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
     position: relative;
@@ -165,5 +181,12 @@
     font-size: 1.1rem;
 }
 
-    </style>
+table tr td[onclick] {
+    transition: background 0.2s ease;
+}
+
+table tr td[onclick]:hover {
+    background: #f0f8ff; /* biru muda saat hover */
+}
+</style>
 @endsection

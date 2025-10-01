@@ -1,14 +1,14 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
-      <div class="modal-header bg-danger text-white">
+    <div class="modal-header bg-danger text-white">
         <h5 class="modal-title" id="exampleModalLabel">Hapus {{ $title }} ?</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true" class="text-white">&times;</span>
         </button>
-      </div>
-      <div class="modal-body text-left">
+    </div>
+    <div class="modal-body text-left">
 
         <div  class="row">
             <div class="col-6">
