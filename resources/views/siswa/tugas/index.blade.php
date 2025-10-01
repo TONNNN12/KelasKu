@@ -93,7 +93,7 @@
                             <!-- Personal Info Column -->
                             <div class="col-lg-6 mb-4">
                                 <section class="info-card rounded-lg p-3 h-100 personal-info-card" 
-                                         aria-labelledby="personal-info-title">
+                                        aria-labelledby="personal-info-title">
                                     <h4 id="personal-info-title" class="font-weight-bold mb-3 d-flex align-items-center section-title">
                                         <i class="fas fa-user mr-2 text-warning" aria-hidden="true"></i>
                                         Informasi Pengguna
@@ -122,22 +122,10 @@
                                             </span>
                                         </div>
                                     </div>
-                                </section>
-                            </div>
-
-                            <!-- Task Info Column -->
-                            <div class="col-lg-6 mb-4">
-                                <section class="info-card rounded-lg p-3 h-100 task-info-card" 
-                                         aria-labelledby="task-info-title">
-                                    <h4 id="task-info-title" class="font-weight-bold mb-3 d-flex align-items-center section-title">
-                                        <i class="fas fa-clipboard-list mr-2 text-warning" aria-hidden="true"></i>
-                                        Detail Tugas
-                                    </h4>
-                                    
                                     <!-- Task Description -->
                                     <div class="detail-item d-flex align-items-start py-3 border-bottom detail-row">
                                         <div class="detail-label text-muted font-weight-semibold mt-1">
-                                            <i class="fas fa-tasks mr-2 text-warning" aria-hidden="true"></i>
+                                            <i class="fas fa-tasks mr-2 detail-icon" aria-hidden="true"></i>
                                             <span>Tugas</span>
                                         </div>
                                         <div class="detail-value flex-fill font-weight-semibold text-dark task-description">
@@ -148,7 +136,7 @@
                                     <!-- Start Date -->
                                     <div class="detail-item d-flex align-items-center py-3 border-bottom detail-row">
                                         <div class="detail-label text-muted font-weight-semibold">
-                                            <i class="fas fa-play-circle mr-2 text-warning" aria-hidden="true"></i>
+                                            <i class="fas fa-play-circle mr-2 detail-icon" aria-hidden="true"></i>
                                             <span>Mulai</span>
                                         </div>
                                         <div class="detail-value flex-fill">
@@ -163,7 +151,7 @@
                                     <!-- End Date -->
                                     <div class="detail-item d-flex align-items-center py-3">
                                         <div class="detail-label text-muted font-weight-semibold">
-                                            <i class="fas fa-stop-circle mr-2 text-warning" aria-hidden="true"></i>
+                                            <i class="fas fa-stop-circle mr-2 detail-icon" aria-hidden="true"></i>
                                             <span>Selesai</span>
                                         </div>
                                         <div class="detail-value flex-fill">
@@ -176,13 +164,69 @@
                                     </div>
                                 </section>
                             </div>
+
+                            <!-- Task Info Column -->
+                            <div class="col-lg-6 mb-4">
+                                <section class="info-card rounded-lg p-3 h-100 task-info-card" 
+                                         aria-labelledby="task-info-title">
+                                    <h4 id="task-info-title" class="font-weight-bold mb-3 d-flex align-items-center section-title">
+                                        <i class="fas fa-clipboard-list mr-2 text-warning" aria-hidden="true"></i>
+                                        Detail Tugas
+                                    </h4>
+
+                                    
+                                    <!--Komentar-->
+                                    @if(Auth::check())
+    <form action="{{ route('komentar.store') }}" method="POST">
+        @csrf
+        <input type="hidden" name="tugas_id" value="{{ $tugas->id }}">
+
+        <div class="form-group">
+            <label for="isi">Tulis Komentar</label>
+            <textarea name="isi" id="isi" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Kirim</button>
+        <a href="{{ route('tugas.comen', $tugas->id) }}" class="btn btn-outline-primary mt-3">
+    <i class="fas fa-comments"></i> Lihat Komentar
+</a>
+
+    </form>
+@else
+    <p class="text-danger">Anda harus <a href="{{ route('login') }}">login</a> untuk memberi komentar.</p>
+@endif
+
+
+
+                                    <!-- Upload Tugas / Laporan -->
+@if(Auth::check())
+
+
+    <form action="{{ route('tugas.kumpul') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="tugas_id" value="{{ $tugas->id }}">
+
+        <div class="form-group">
+            <label for="file_tugas">Upload File</label>
+            <input type="file" name="file_tugas" id="file_tugas" class="form-control-file border p-2 rounded" required>
+            <small class="text-muted">Format: PDF, DOC, DOCX, JPG, PNG (maks 2MB)</small>
+        </div>
+
+        <button type="submit" class="btn btn-success rounded-pill px-4 py-2 shadow-sm mt-2">
+            <i class="fas fa-paper-plane mr-2"></i> Kumpulkan
+        </button>
+    </form>
+@endif
+                                </section>
+                            </div>
                         </div>
 
                     @else
+                    
                         <!-- No Task Assigned Section -->
                         <section class="text-center py-5 px-4 no-task-section" 
-                                 role="status" 
-                                 aria-labelledby="no-task-title">
+                                role="status" 
+                                aria-labelledby="no-task-title">
                             <div class="rounded-lg p-5 status-unassigned">
                                 <div class="no-task-icon rounded-circle p-4 d-inline-flex align-items-center justify-content-center mb-4 shadow">
                                     <i class="fas fa-exclamation-triangle fa-3x" aria-hidden="true"></i>

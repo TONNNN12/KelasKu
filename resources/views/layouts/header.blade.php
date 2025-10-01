@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>KelasKu | {{ $title }}</title>
+   <title>KelasKu | {{ $title ?? 'Dashboard' }}</title>
+
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('sbadmin2/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">

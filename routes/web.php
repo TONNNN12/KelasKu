@@ -5,6 +5,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KomentarController;
+
+
 use App\Models\Tugas;
 
 Route::get('/', function () {
@@ -24,6 +27,15 @@ Route::middleware('checkLogin')->group(function(){
 Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
 Route::get('tugas',[TugasController::class,'index'])->name('tugas');
 Route::get('tugas/pdf',[TugasController::class,'pdf'])->name('tugasPdf');
+Route::post('/komentar', [KomentarController::class, 'store'])->name('komentar.store');
+Route::post('/tugas/kumpul', [TugasController::class, 'kumpul'])->name('tugas.kumpul');
+Route::get('tugas/{id}/submissions', [TugasController::class, 'submissions'])
+     ->name('tugas.submissions');
+Route::post('/komentar/{id}/reply', [KomentarController::class, 'reply'])->name('komentar.reply');
+Route::delete('/komentar/{id}', [KomentarController::class, 'destroy'])->name('komentar.destroy');
+ Route::get('tugas/{id}/komentar', [KomentarController::class, 'show'])
+        ->name('tugas.comen');
+
 Route::middleware('isAdmin')->group(function(){
     // User
 Route::get('user',[UserController::class,'index'])->name('user');

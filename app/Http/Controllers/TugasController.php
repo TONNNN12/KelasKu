@@ -7,6 +7,7 @@ use App\Models\Tugas;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Submission;
 
 class TugasController extends Controller
 {
@@ -119,9 +120,36 @@ class TugasController extends Controller
         $pdf = Pdf::loadView('siswa/tugas/pdf', $data);
     return $pdf->setPaper('a4', 'portrait')->stream('DataTugas_'.$filename.'.pdf');
         }
-        
-
-
-       
     }
+    public function show($id)
+{
+    $tugas = Tugas::with('komentar.user')->findOrFail($id);
+    return view('tugas.show', compact('tugas'));
+}
+public function kumpul(Request $request)
+{
+    $request->validate([
+        'tugas_id'   => 'required|exists:tugas,id',
+        'file_tugas' => 'required|file|mimes:pdf,doc,docx,jpg,png|max:2048',
+    ]);
+
+    // Simpan file ke storage/app/public/tugas
+    $path = $request->file('file_tugas')->store('tugas', 'public');
+
+    Submission::create([
+        'tugas_id' => $request->tugas_id,
+        'user_id'  => auth()->id(),
+        'file'     => $path,
+    ]);
+
+    return back()->with('success', 'Tugas berhasil dikumpulkan!');
+}
+public function submissions($id)
+{
+    // Ambil tugas beserta submissions dan data usernya
+    $tugas = Tugas::with(['submissions.user'])->findOrFail($id);
+
+    return view('admin.tugas.submissions', compact('tugas'));
+}
+
 }

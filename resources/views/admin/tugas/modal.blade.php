@@ -91,7 +91,5 @@
                     <span class="badge badge-info"> {{ $item->user->jabatan }}</span>
             </div>
         </div>
-        </div>
-    </div>
-</div>
-</div>
+        
+
